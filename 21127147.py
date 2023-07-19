@@ -69,7 +69,7 @@ def kmeans(img_1d, k_cluster, max_iter, init_centroids):
 
 
 
-if __name__ == '__main__':  
+if __name__ == '__main__':       
     # nhập tên ảnh. VD: <ten>.jpg
     pic_name = input('Enter pictures name (including the suffix (.jpg)): ')
     # pic_name = 'loinho.jpg'
