@@ -69,26 +69,17 @@ def kmeans(img_1d, k_cluster, max_iter, init_centroids):
 
 
 
-if __name__ == '__main__':
+if __name__ == '__main__':  
+    # nhập tên ảnh. VD: <ten>.jpg
     pic_name = input('Enter pictures name (including the suffix (.jpg)): ')
     # pic_name = 'loinho.jpg'
     img = mpimage.imread(pic_name)
     # thay đổi số chiều của img thì mảng 1 chiều với các phần tử là các điểm màu mang giá trị R, G, B
     img_1d = img.reshape((img.shape[0] * img.shape[1], img.shape[2]))
+    # nhập số cluster
     k_cluster = int(input('Enter k_clusters: '))
     max_iter = 100
     init_centroids = 'random'
-
-    # centroids = initialize_centroids(k_cluster, img_1d, init_centroids)
-    # print('centroids:\n', centroids)
-    # # labels = print(assign_label(img_1d, centroids))
-    # distances = np.linalg.norm((img_1d[:, None] - centroids), axis=2)
-    # # print(distances)
-    # print()
-    # labels = np.argmin(distances, axis=1)
-    # print(labels)
-    # print(img_1d[:, None])
-    
     start_time = time.time()
     centroids, labels, new_img = kmeans(img_1d, k_cluster, max_iter, init_centroids)
     end_time = time.time()
@@ -99,5 +90,4 @@ if __name__ == '__main__':
     plt.imshow(new_img.astype('uint8'))
     pic_name = pic_name.replace('.jpg', '')
     plt.savefig(pic_name + '_' + str(k_cluster) + '_clusters' + '.png')
-    plt.show()
     
